@@ -1,8 +1,8 @@
 import React from 'react';
-import FilterLink from '../../containers/filter-link';
+import FilterLink from './filter-link';
 
 const Footer = () => (
-    <div className='todo--foter'>
+    <div className='footer'>
         Show:
         {' '}
         <FilterLink filter="SHOW_ALL">
@@ -17,6 +17,6 @@ const Footer = () => (
             Completed
         </FilterLink>
     </div>
-)
+);
 
 export default Footer;

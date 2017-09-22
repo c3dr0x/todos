@@ -1,9 +1,19 @@
+// Libs
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+// Actions
+import { addTodo } from '../../actions/todo-list';
 
-class TodoInput extends Component {
+const mapDispatchToProps = (dispatch, { listId }) => ({
+    onAdd: (text) => {
+        dispatch(addTodo(listId, text));
+    }
+});
 
-    static displayName = 'TodoInput';
+class Input extends Component {
+
+    static displayName = 'Input';
 
     static propTypes = {
         onAdd: PropTypes.func.isRequired
@@ -30,7 +40,7 @@ class TodoInput extends Component {
 
     render() {
         return (
-            <div className='todo--input'>
+            <div className='todo-list--add'>
                 <form onSubmit={this.formSubmit}>
                     <input type='text' ref='input' />
                     <button type="submit">
@@ -42,4 +52,9 @@ class TodoInput extends Component {
     }
 }
 
-export default TodoInput;
+const AddTodo = connect(
+    null,
+    mapDispatchToProps
+)(Input);
+
+export default AddTodo;

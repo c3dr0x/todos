@@ -1,0 +1,16 @@
+{
+    "visibilityfilter": "string",
+    "todosList": [
+        {
+            "id": "int",
+            "name": "string",
+            "todos": [
+                {
+                    "id": "int",
+                    "text": "string",
+                    "completed": "bool"
+                }
+            ]
+        }
+    ]
+}

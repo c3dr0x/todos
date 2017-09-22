@@ -1,33 +1,34 @@
 // Libs
 import React, { Component } from 'react';
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { createLogger } from 'redux-logger';
+import thunkMiddleware from 'redux-thunk'
 // Misc
+import { loadState, saveState } from './utils/localStorage';
 import logo from './logo.svg';
 import './App.css';
 // Reducers
 import todoApp from './reducers'
 // Components
-import TodoComponent from './components/todos';
+import TodoListContainer from './components/todo-list-container';
+import Footer from './components/footer';
 
-const todos = [
-    { id: 0, text: 'start front', completed: true },
-    { id: 1, text: 'do backend', completed: false },
-    { id: 2, text: 'do CSS', completed: false },
-    { id: 3, text: 'publish', completed: false }
-];
+const persistedState = loadState();
+const loggerMiddleware = createLogger();
 
-const logger = store => next => action => {
-    console.group(action.type);
-    console.info('dispatching', action);
-    const result = next(action);
-    console.log('next state', store.getState());
-    console.groupEnd(action.type);
+let store = createStore(
+    todoApp,
+    persistedState,
+    applyMiddleware(
+        loggerMiddleware,
+        thunkMiddleware
+    )
+);
 
-    return result;
-}
-
-let store = createStore(todoApp, { todos }, applyMiddleware(logger));
+store.subscribe(() => {
+    saveState(store.getState());
+});
 
 class App extends Component {
     render() {
@@ -38,7 +39,8 @@ class App extends Component {
                         <img src={logo} className="App-logo" alt="logo" />
                         <h2>Welcome to React</h2>
                     </div>
-                    <TodoComponent />
+                    <TodoListContainer />
+                    <Footer />
                 </div>
             </Provider>
         );
