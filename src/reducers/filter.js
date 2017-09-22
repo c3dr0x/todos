@@ -1,3 +1,4 @@
+// Actions
 import { SET_VISIBILITY_FILTER, VisibilityFilters } from '../actions/filter';
 
 function visibilityFilter(state = VisibilityFilters.SHOW_ALL, action) {

@@ -1,3 +1,4 @@
+// Libs
 import uuid from 'uuid/v4';
 
 export const ADD_TODO = 'ADD_TODO';
@@ -8,7 +9,7 @@ export function addTodo(listId, text) {
         type: ADD_TODO,
         listId,
         id: uuid(),
-        text,
+        text
     };
 }
 

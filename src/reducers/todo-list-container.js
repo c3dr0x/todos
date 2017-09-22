@@ -1,6 +1,7 @@
+// Actions
 import { ADD_TODO_CONTAINER } from '../actions/todo-list-container';
 import { ADD_TODO, TOGGLE_TODO } from '../actions/todo-list';
-
+// Reduces
 import todoListReducer from './todo-list'
 
 const defaultState = [

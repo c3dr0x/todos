@@ -1,20 +1,12 @@
+// Libs
 import React from 'react';
-import PropTypes from 'prop-types';
+// Definitions
+import { todoList } from '../../definitions';
 // Components
 import List from './list';
 import Add from './add';
 
-const propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    todos: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired,
-            completed: PropTypes.bool.isRequired
-        })
-    )
-};
+const propTypes = todoList;
 
 const defaultProps = {
     todos: []

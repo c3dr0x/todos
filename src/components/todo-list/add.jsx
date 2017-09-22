@@ -43,8 +43,8 @@ class Input extends Component {
             <div className='todo-list--add'>
                 <form onSubmit={this.formSubmit}>
                     <input type='text' ref='input' />
-                    <button type="submit">
-                        Add Todo
+                    <button type='submit'>
+                        {'Add Todo'}
                     </button>
                 </form>
             </div>

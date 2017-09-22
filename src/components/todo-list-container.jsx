@@ -1,6 +1,8 @@
+// Libs
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+// Definitions
+import { todoListCollection } from '../definitions';
 // Components
 import TodoList from './todo-list';
 
@@ -9,19 +11,7 @@ const mapStateToProps = state => ({
 });
 
 const propTypes = {
-    todoList: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
-            todos: PropTypes.arrayOf(
-                PropTypes.shape({
-                    id: PropTypes.string.isRequired,
-                    text: PropTypes.string.isRequired,
-                    completed: PropTypes.bool.isRequired
-                })
-            )
-        })
-    )
+    todoListCollection: todoListCollection.isRequired
 };
 
 const TodoListContainer = ({ todoListCollection }) => {

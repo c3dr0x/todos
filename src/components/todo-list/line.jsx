@@ -1,10 +1,11 @@
+// Libs
 import React from 'react';
 import PropTypes from 'prop-types';
+// Definitions
+import { todo } from '../../definitions';
 
 const propTypes = {
-    id: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    completed: PropTypes.bool.isRequired,
+    ...todo,
     onToggleTodo: PropTypes.func.isRequired
 };
 

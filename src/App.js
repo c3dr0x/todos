@@ -1,11 +1,11 @@
 // Libs
-import React, { Component } from 'react';
+import React from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk'
 // Misc
-import { loadState, saveState } from './utils/localStorage';
+import { loadState, saveState } from './utils/local-storage';
 import logo from './logo.svg';
 import './App.css';
 // Reducers
@@ -30,21 +30,19 @@ store.subscribe(() => {
     saveState(store.getState());
 });
 
-class App extends Component {
-    render() {
-        return (
-            <Provider store={store}>
-                <div className="App">
-                    <div className="App-header">
-                        <img src={logo} className="App-logo" alt="logo" />
-                        <h2>Welcome to React</h2>
-                    </div>
-                    <TodoListContainer />
-                    <Footer />
+const App = () => {
+    return (
+        <Provider store={store}>
+            <div className='App'>
+                <div className='App-header'>
+                    <img src={logo} className='App-logo' alt='logo' />
+                    <h2>{'Welcome to React'}</h2>
                 </div>
-            </Provider>
-        );
-    }
-}
+                <TodoListContainer />
+                <Footer />
+            </div>
+        </Provider>
+    );
+};
 
 export default App;

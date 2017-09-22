@@ -1,11 +1,13 @@
+// Libs
 import React from 'react';
 import PropTypes from 'prop-types';
-// Components
-import Line from './line';
-// Libs
 import { connect } from 'react-redux';
 // Actions
 import { toggleTodo } from '../../actions/todo-list.js';
+// Definitions
+import { todo } from '../../definitions';
+// Components
+import Line from './line';
 
 const getVisibleTodos = (todos, filter) => {
     switch (filter) {
@@ -32,11 +34,9 @@ const mapDispatchToProps = (dispatch, { listId }) => ({
 
 const propTypes = {
     todos: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired,
-            completed: PropTypes.bool.isRequired
-        })
+        PropTypes.shape(
+            todo
+        )
     ),
     onToggleTodo: PropTypes.func.isRequired
 };

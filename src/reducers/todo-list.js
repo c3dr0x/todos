@@ -1,3 +1,4 @@
+// Actions
 import { ADD_TODO, TOGGLE_TODO } from '../actions/todo-list'
 
 function todos(state = [], action) {
