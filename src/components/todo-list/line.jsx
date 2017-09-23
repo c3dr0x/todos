@@ -3,18 +3,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Definitions
 import { todo } from '../../definitions';
+// Components
+import TListCheckbox from 'react-toolbox/lib/list/ListCheckbox';
 
 const propTypes = {
     ...todo,
     onToggleTodo: PropTypes.func.isRequired
 };
 
+/**
+ * LineComponent.
+ * @param {object} props props.
+ * @returns {JSXElement} component.
+ */
 const Line = ({ id, text, completed, onToggleTodo }) => {
     return (
-        <div className='todo-list--line' data-todo-id={id}>
-            <input type='checkbox' checked={completed} onChange={() => onToggleTodo(id)} />
-            {text}
-        </div>
+        <TListCheckbox checked={completed} caption={text} onChange={() => onToggleTodo(id)} />
     );
 };
 

@@ -7,8 +7,15 @@ import { toggleTodo } from '../../actions/todo-list.js';
 // Definitions
 import { todo } from '../../definitions';
 // Components
+import TList from 'react-toolbox/lib/list/List';
 import Line from './line';
 
+/**
+ * Extract todos correponding to filter.
+ * @param {array} todos todos.
+ * @param {string} filter filter.
+ * @returns {array} filtered todos.
+ */
 const getVisibleTodos = (todos, filter) => {
     switch (filter) {
         case 'SHOW_ALL':
@@ -45,15 +52,18 @@ const defaultProps = {
     todos: []
 };
 
+/**
+ * ListComponent.
+ * @param {object} props props.
+ * @returns {JSXElement} comonent.
+ */
 const List = ({ todos, onToggleTodo }) => {
     return (
-        <ul className='todo-list--list'>
+        <TList selectable ripple>
             {todos.map(todo => (
-                <li key={todo.id}>
-                    <Line {...todo} onToggleTodo={onToggleTodo} />
-                </li>
+                <Line key={todo.id} {...todo} onToggleTodo={onToggleTodo} />
             ))}
-        </ul>
+        </TList>
     );
 }
 

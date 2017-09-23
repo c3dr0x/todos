@@ -4,13 +4,25 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // Actions
 import { addTodo } from '../../actions/todo-list';
+// Components
+import TInput from 'react-toolbox/lib/input/Input';
+import TButton from 'react-toolbox/lib/button/Button';
 
+/**
+ * mapDispatchToProps.
+ * @param {func} dispatch dispatch.
+ * @param {object} props props.
+ * @return {object} props.
+ */
 const mapDispatchToProps = (dispatch, { listId }) => ({
     onAdd: (text) => {
         dispatch(addTodo(listId, text));
     }
 });
 
+/**
+ * InputComponent.
+ */
 class Input extends Component {
 
     static displayName = 'Input';
@@ -19,35 +31,55 @@ class Input extends Component {
         onAdd: PropTypes.func.isRequired
     };
 
+    state = {
+        text: ''
+    };
+
+    /**
+     * Constructor.
+     * @param {object} props props.
+     */
     constructor(props) {
         super(props);
 
-        this.formSubmit = this.formSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.addTodo = this.addTodo.bind(this);
     }
 
-    formSubmit(e) {
-        e.preventDefault();
+    /**
+     * Handle text change.
+     * @param {string} text text.
+     */
+    handleChange(text) {
+        this.setState({ text });
+    }
 
-        const value = this.refs.input.value.trim()
-
-        if (!value) {
-            return;
+    /**
+     * Add todoItem.
+     * @param {object} event event.
+     */
+    addTodo(event) {
+        if (event) {
+            event.preventDefault();
         }
 
-        this.props.onAdd(value);
-        this.refs.input.value = '';
+        const { text } = this.state;
+
+        this.props.onAdd(text);
+        this.setState({ text: '' });
     }
 
+    /** @inheritdoc */
     render() {
+        const { text } = this.state;
+
         return (
-            <div className='todo-list--add'>
-                <form onSubmit={this.formSubmit}>
-                    <input type='text' ref='input' />
-                    <button type='submit'>
-                        {'Add Todo'}
-                    </button>
-                </form>
-            </div>
+            <form onSubmit={this.addTodo}>
+                <div className='todo-list--add'>
+                    <TInput type='text' label='New todo' name='todo' value={text} onChange={this.handleChange} />
+                    <TButton icon='add' label='Add todo' onMouseUp={this.addTodo} flat primary />
+                </div>
+            </form>
         );
     }
 }

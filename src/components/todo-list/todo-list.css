@@ -1,0 +1,7 @@
+.todo-list--container {
+  display: flex;
+  justify-content: center; }
+  .todo-list--container .todo-list .todo-list--add {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
