@@ -1,18 +1,49 @@
+import { updateItemInArray, updateObject } from './utils';
 // Actions
 import { ADD_TODO_CONTAINER } from '../actions/todo-list-container';
 import { ADD_TODO, TOGGLE_TODO } from '../actions/todo-list';
-// Reduces
-import todoListReducer from './todo-list'
+import { SET_VISIBILITY_FILTER } from '../actions/filter';
+// Reducers
+import todoListReducer from './todo-list';
+import visibilityFilterReducer from './filter';
 
-const defaultState = [
-    {
-        id: '6fdf6ffc-ed77-94fa-407e-a7b86ed9e59d',
-        name: '1st List',
-        todos: []
-    }
-];
+import uuid from 'uuid/v4';
 
-function todos(state = defaultState, action) {
+const defaultState = [{
+    id: uuid(),
+    name: '1st List',
+    visibilityFilter: 'SHOW_ALL',
+    todos: [{
+        id: uuid(),
+        text: 'toto',
+        completed: false
+    }, {
+        id: uuid(),
+        text: 'lala',
+        completed: true
+    }]
+}, {
+    id: uuid(),
+    name: '2nd List',
+    visibilityFilter: 'SHOW_ACTIVE',
+    todos: [{
+        id: uuid(),
+        text: 'toto',
+        completed: false
+    }, {
+        id: uuid(),
+        text: 'lala',
+        completed: true
+    }]
+}];
+
+/**
+ * Todos list reducer.
+ * @param {array} state state.
+ * @param {object} action action.
+ * @returns {array} state.
+ */
+function todoListContainerReducer(state = defaultState, action) {
     switch (action.type) {
         case ADD_TODO_CONTAINER:
             return [
@@ -20,24 +51,22 @@ function todos(state = defaultState, action) {
                 {
                     id: action.id,
                     name: action.name,
-                    todos: []
+                    todos: todoListReducer(),
+                    visibilityFilter: visibilityFilterReducer()
                 }
             ];
+        case SET_VISIBILITY_FILTER:
+            return updateItemInArray(state, action.listId, todoList => {
+                return updateObject(todoList, { visibilityFilter: visibilityFilterReducer(todoList.visibilityFilter, action) });
+            })
         case ADD_TODO:
         case TOGGLE_TODO:
-            return state.map(todoList => {
-                if (todoList.id !== action.listId) {
-                    return todoList;
-                }
-
-                return {
-                    ...todoList,
-                    todos: todoListReducer(todoList.todos, action)
-                };
-            })
+            return updateItemInArray(state, action.listId, todoList => {
+                return updateObject(todoList, { todos: todoListReducer(todoList.todos, action) });
+            });
         default:
             return state;
     }
 }
 
-export default todos;
+export default todoListContainerReducer;

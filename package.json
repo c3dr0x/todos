@@ -14,10 +14,13 @@
     },
     "reactToolbox": {
         "include": [
+            "APP_BAR",
             "BUTTON",
             "CARD",
             "INPUT",
-            "LIST"
+            "LINK",
+            "LIST",
+            "NAVIGATION"
         ],
         "customProperties": {
             "animation-duration": "0.3s",

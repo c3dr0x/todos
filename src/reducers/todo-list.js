@@ -1,6 +1,12 @@
 // Actions
-import { ADD_TODO, TOGGLE_TODO } from '../actions/todo-list'
+import { ADD_TODO, TOGGLE_TODO } from '../actions/todo-list';
 
+/**
+ * Todos reducers.
+ * @param {array} state state.
+ * @param {object} action action.
+ * @returns {array} state.
+ */
 function todos(state = [], action) {
     switch (action.type) {
         case ADD_TODO:

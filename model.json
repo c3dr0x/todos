@@ -1,12 +1,12 @@
 {
-    "visibilityfilter": "string",
-    "todosList": [
+    "todoListCollection": [
         {
-            "id": "int",
+            "id": "string",
             "name": "string",
+            "visibilityfilter": "string",
             "todos": [
                 {
-                    "id": "int",
+                    "id": "string",
                     "text": "string",
                     "completed": "bool"
                 }

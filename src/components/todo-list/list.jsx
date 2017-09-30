@@ -9,30 +9,25 @@ import { todo } from '../../definitions';
 // Components
 import TList from 'react-toolbox/lib/list/List';
 import Line from './line';
+// Misc
+import { getVisibleTodos } from './utils';
 
 /**
- * Extract todos correponding to filter.
- * @param {array} todos todos.
- * @param {string} filter filter.
- * @returns {array} filtered todos.
+ * mapStateToProps.
+ * @param {object} state state.
+ * @param {object} props props.
+ * @returns {object} props.
  */
-const getVisibleTodos = (todos, filter) => {
-    switch (filter) {
-        case 'SHOW_ALL':
-            return todos;
-        case 'SHOW_COMPLETED':
-            return todos.filter(t => t.completed);
-        case 'SHOW_ACTIVE':
-            return todos.filter(t => !t.completed);
-        default:
-            throw new Error(`Unknown visibility filter : ${filter}`);
-    }
-};
-
-const mapStateToProps = (state, { todos }) => ({
-    todos: getVisibleTodos(todos, state.visibilityFilter)
+const mapStateToProps = (state, { todos, visibilityFilter }) => ({
+    todos: getVisibleTodos(todos, visibilityFilter)
 });
 
+/**
+ * mapDispatchToProps.
+ * @param {func} dispatch dispatch.
+ * @param {object} props props.
+ * @returns {object} props.
+ */
 const mapDispatchToProps = (dispatch, { listId }) => ({
     onToggleTodo: todoId => {
         dispatch(toggleTodo(listId, todoId));

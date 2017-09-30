@@ -1,6 +1,8 @@
 .todo-list--container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+
+    margin-top: 18px;
 
     .todo-list {
         .todo-list--add {

@@ -7,15 +7,14 @@ import thunkMiddleware from 'redux-thunk'
 import { ThemeProvider } from 'react-css-themr';
 import theme from './theme/theme';
 import './theme/theme.css';
-// Misc
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import { loadState, saveState } from './utils/local-storage';
-import logo from './logo.svg';
-import './App.css';
 // Reducers
 import todoApp from './reducers'
 // Components
 import TodoListContainer from './components/todo-list/todo-list-container';
-import Footer from './components/footer';
+import TAppBar from 'react-toolbox/lib/app_bar/AppBar';
 
 const persistedState = loadState();
 const loggerMiddleware = createLogger();
@@ -42,12 +41,8 @@ const App = () => {
         <Provider store={store}>
             <ThemeProvider theme={theme}>
                 <div className='App'>
-                    <div className='App-header'>
-                        <img src={logo} className='App-logo' alt='logo' />
-                        <h2>{'Welcome to React'}</h2>
-                    </div>
+                    <TAppBar title='ToDo.app' />
                     <TodoListContainer />
-                    <Footer />
                 </div>
             </ThemeProvider>
         </Provider>

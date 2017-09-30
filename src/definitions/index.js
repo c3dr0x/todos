@@ -10,6 +10,7 @@ export const todo = {
 export const todoList = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    visibilityFilter: PropTypes.string.isRequired,
     todos: PropTypes.arrayOf(
         PropTypes.shape(
             todo

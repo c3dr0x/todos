@@ -77,7 +77,7 @@ class Input extends Component {
             <form onSubmit={this.addTodo}>
                 <div className='todo-list--add'>
                     <TInput type='text' label='New todo' name='todo' value={text} onChange={this.handleChange} />
-                    <TButton icon='add' label='Add todo' onMouseUp={this.addTodo} flat primary />
+                    <TButton icon='add' label='Add' onMouseUp={this.addTodo} flat primary />
                 </div>
             </form>
         );

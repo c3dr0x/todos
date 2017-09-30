@@ -2,14 +2,19 @@
 import React from 'react';
 // Definitions
 import { todoList } from '../../definitions';
+// Actions
+import { VisibilityFilters } from '../../actions/filter'
 // Components
 import List from './list';
 import Add from './add';
+import Footer from './footer';
 import TCard from 'react-toolbox/lib/card/Card';
 import TCardTitle from 'react-toolbox/lib/card/CardTitle';
 import TCardText from 'react-toolbox/lib/card/CardText';
 // Style
 import './todo-list.css';
+// Misc
+import { getVisibleTodos } from './utils';
 
 const propTypes = todoList;
 
@@ -22,21 +27,22 @@ const defaultProps = {
  * @param {object} props props.
  * @returns {JSXElement} component.
  */
-const TodoList = ({ id, name, todos }) => {
+const TodoList = ({ id, name, todos, visibilityFilter }) => {
+    const completedTodos = getVisibleTodos(todos, VisibilityFilters.SHOW_COMPLETED).length;
+    const allTodos = getVisibleTodos(todos, VisibilityFilters.SHOW_ALL).length;
+
     return (
         <div className='todo-list' >
             <TCard style={{ width: '350px' }}>
                 <TCardTitle
                     title={name}
+                    subtitle={`(${completedTodos}/${allTodos})`}
                 />
                 <TCardText>
                     <Add listId={id} />
-                    <List listId={id} todos={todos} />
+                    <List listId={id} todos={todos} visibilityFilter={visibilityFilter} />
                 </TCardText>
-                {/* <CardActions theme={theme}>
-                    <Button label='Action 1' />
-                    <Button label='Action 2' />
-                </CardActions> */}
+                <Footer listId={id} visibilityFilter={visibilityFilter} />
             </TCard>
         </div>
     );
