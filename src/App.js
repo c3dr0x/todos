@@ -19,6 +19,10 @@ import TAppBar from 'react-toolbox/lib/app_bar/AppBar';
 const persistedState = loadState();
 const loggerMiddleware = createLogger();
 
+if (persistedState !== undefined && persistedState.version !== '0.1.0') {
+    throw new Error('Update local cache or delete it, then hit refresh.');
+}
+
 let store = createStore(
     todoApp,
     persistedState,
@@ -29,7 +33,7 @@ let store = createStore(
 );
 
 store.subscribe(() => {
-    saveState(store.getState());
+    saveState({ ...store.getState(), version: '0.1.0' });
 });
 
 /**
