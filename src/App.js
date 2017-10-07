@@ -1,6 +1,6 @@
 // Libs
 import React from 'react';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk'
@@ -23,12 +23,16 @@ if (persistedState !== undefined && persistedState.version !== '0.1.0') {
     throw new Error('Update local cache or delete it, then hit refresh.');
 }
 
-let store = createStore(
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
     todoApp,
     persistedState,
-    applyMiddleware(
-        loggerMiddleware,
-        thunkMiddleware
+    composeEnhancers(
+        applyMiddleware(
+            loggerMiddleware,
+            thunkMiddleware
+        )
     )
 );
 
