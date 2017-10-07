@@ -1,0 +1,14 @@
+
+.app {
+    .app-bar {
+        .app-bar--fab-container {
+            position: fixed;
+            top: 32px;
+            right: 50px;
+
+            button {
+                margin-left: 8px;
+            }
+        }
+    }
+}

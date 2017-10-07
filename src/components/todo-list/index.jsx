@@ -11,8 +11,8 @@ import Footer from './footer';
 import TCard from 'react-toolbox/lib/card/Card';
 import TCardTitle from 'react-toolbox/lib/card/CardTitle';
 import TCardText from 'react-toolbox/lib/card/CardText';
-// Style
-import './todo-list.css';
+// Styles
+import './styles/todo-list.css';
 // Misc
 import { getVisibleTodos } from './utils';
 

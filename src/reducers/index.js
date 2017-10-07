@@ -1,7 +1,7 @@
 // Libs
 import { combineReducers } from 'redux';
 // Reducers
-import todoListCollection from './todo-list-container';
+import todoListCollection from './todo-list-collection';
 
 const todoApp = combineReducers({
     todoListCollection

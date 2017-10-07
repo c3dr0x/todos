@@ -4,6 +4,7 @@
             "id": "string",
             "name": "string",
             "visibilityfilter": "string",
+            "isLoading": "bool",
             "todos": [
                 {
                     "id": "string",

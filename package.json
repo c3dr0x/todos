@@ -20,7 +20,8 @@
             "INPUT",
             "LINK",
             "LIST",
-            "NAVIGATION"
+            "NAVIGATION",
+            "DIALOG"
         ],
         "customProperties": {
             "animation-duration": "0.3s",

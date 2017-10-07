@@ -1,0 +1,9 @@
+.todo-list {
+    margin: 18px;
+
+    .todo-list--add {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

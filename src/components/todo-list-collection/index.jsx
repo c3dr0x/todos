@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 // Definitions
 import { todoListCollection } from '../../definitions';
 // Components
-import TodoList from './todo-list';
+import TodoList from '../todo-list';
+// Style
+import './styles/todo-list-collection.css';
 
 /**
  * mapStateToProps.
@@ -20,13 +22,13 @@ const propTypes = {
 };
 
 /**
- * TodoListContainer comonent.
+ * TodoListCollection comonent.
  * @param {object} props props.
  * @returns {JSXElement} component.
  */
-const TodoListContainer = ({ todoListCollection }) => {
+const TodoListCollection = ({ todoListCollection }) => {
     return (
-        <div className='todo-list--container'>
+        <div className='todo-list--collection'>
             {todoListCollection.map((todoList) => (
                 <TodoList key={todoList.id} {...todoList} />
             ))}
@@ -34,12 +36,12 @@ const TodoListContainer = ({ todoListCollection }) => {
     );
 };
 
-TodoListContainer.displayName = 'TodoListContainer';
-TodoListContainer.propTypes = propTypes;
+TodoListCollection.displayName = 'TodoListCollection';
+TodoListCollection.propTypes = propTypes;
 
-const TodoListContainerConnected = connect(
+const TodoListCollectionConnected = connect(
     mapStateToProps,
     null
-)(TodoListContainer);
+)(TodoListCollection);
 
-export default TodoListContainerConnected;
+export default TodoListCollectionConnected;
