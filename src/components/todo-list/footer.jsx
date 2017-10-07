@@ -58,5 +58,4 @@ const FooterConnected = connect(
     mapDispatchToProps
 )(Footer);
 
-
 export default FooterConnected;

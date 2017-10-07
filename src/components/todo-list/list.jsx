@@ -13,16 +13,6 @@ import Line from './line';
 import { getVisibleTodos } from './utils';
 
 /**
- * mapStateToProps.
- * @param {object} state state.
- * @param {object} props props.
- * @returns {object} props.
- */
-const mapStateToProps = (state, { todos, visibilityFilter }) => ({
-    todos: getVisibleTodos(todos, visibilityFilter)
-});
-
-/**
  * mapDispatchToProps.
  * @param {func} dispatch dispatch.
  * @param {object} props props.
@@ -40,6 +30,7 @@ const propTypes = {
             todo
         )
     ),
+    visibilityFilter: PropTypes.string.isRequired,
     onToggleTodo: PropTypes.func.isRequired
 };
 
@@ -52,10 +43,12 @@ const defaultProps = {
  * @param {object} props props.
  * @returns {JSXElement} comonent.
  */
-const List = ({ todos, onToggleTodo }) => {
+const List = ({ todos, visibilityFilter, onToggleTodo }) => {
+    const visibleTodos = getVisibleTodos(todos, visibilityFilter);
+
     return (
         <TList selectable ripple>
-            {todos.map(todo => (
+            {visibleTodos.map(todo => (
                 <Line key={todo.id} {...todo} onToggleTodo={onToggleTodo} />
             ))}
         </TList>
@@ -67,7 +60,7 @@ List.propTypes = propTypes;
 List.defaultProps = defaultProps;
 
 const VisibleTodoList = connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(List);
 
