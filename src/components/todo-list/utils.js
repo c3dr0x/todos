@@ -1,3 +1,4 @@
+import { VisibilityFilters } from '../../actions/filter'
 
 /**
  * Extract todos correponding to filter.
@@ -7,11 +8,11 @@
  */
 export const getVisibleTodos = (todos, filter) => {
     switch (filter) {
-        case 'SHOW_ALL':
+        case VisibilityFilters.SHOW_ALL:
             return todos;
-        case 'SHOW_COMPLETED':
+        case VisibilityFilters.SHOW_COMPLETED:
             return todos.filter(t => t.completed);
-        case 'SHOW_ACTIVE':
+        case VisibilityFilters.SHOW_ACTIVE:
             return todos.filter(t => !t.completed);
         default:
             throw new Error(`Unknown visibility filter : ${filter}`);
