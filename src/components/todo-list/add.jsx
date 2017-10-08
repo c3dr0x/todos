@@ -65,7 +65,9 @@ class Input extends Component {
 
         const { text } = this.state;
 
-        this.props.onAdd(text);
+        if (text !== '') {
+            this.props.onAdd(text);
+        }
         this.setState({ text: '' });
     }
 

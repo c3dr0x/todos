@@ -1,5 +1,7 @@
 // Libs
 import uuid from 'uuid/v4';
+// Actions
+import { addSnackbarMessage } from './snackbar';
 
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
@@ -11,11 +13,16 @@ export const TOGGLE_TODO = 'TOGGLE_TODO';
  * @returns {object} Action.
  */
 export function addTodo(listId, text) {
-    return {
-        type: ADD_TODO,
-        listId,
-        id: uuid(),
-        text
+    return (dispatch) => {
+        dispatch(addSnackbarMessage(
+            `Added toto: ${text}`
+        ));
+        dispatch({
+            type: ADD_TODO,
+            listId,
+            id: uuid(),
+            text
+        });
     };
 }
 

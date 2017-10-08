@@ -4,6 +4,7 @@ import './styles/app.scss';
 // Components
 import AppBar from './app-bar';
 import TodoListCollection from './todo-list-collection';
+import Snackbar from './snackbar';
 
 /**
  * Application root.
@@ -14,6 +15,7 @@ const App = () => {
         <div className='app'>
             <AppBar />
             <TodoListCollection />
+            <Snackbar />
         </div>
     );
 };

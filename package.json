@@ -13,7 +13,7 @@
             "env": {
                 "ANCHOR_CLASS": "root",
                 "ENTRY_FILE_PATH": "./src",
-                "GENERATE_HTML": "false",
+                "GENERATE_HTML": "true",
                 "HOT_RELOAD": "true",
                 "NODE_ENV": "development",
                 "OUTPUT_PUBLIC_PATH": "http://localhost:3000/",
@@ -42,11 +42,12 @@
             "APP_BAR",
             "BUTTON",
             "CARD",
+            "DIALOG",
             "INPUT",
             "LINK",
             "LIST",
             "NAVIGATION",
-            "DIALOG"
+            "SNACKBAR"
         ],
         "customProperties": {
             "animation-duration": "0.3s",

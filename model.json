@@ -1,4 +1,11 @@
 {
+    "snackbar": [
+        {
+            "id": "string",
+            "message": "string",
+            "type": "string"
+        }
+    ],
     "todoListCollection": [
         {
             "id": "string",

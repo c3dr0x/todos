@@ -23,3 +23,9 @@ export const todoListCollection = PropTypes.arrayOf(
         todoList
     )
 );
+
+export const message = PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
+});
