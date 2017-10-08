@@ -46,17 +46,19 @@ class SnackBar extends Component {
         message: undefined
     };
 
-    /** Initial state. */
-    state = {
-        active: false
-    };
-
     /**
      * Constructor.
      * @param {object} props Props.
      */
     constructor(props) {
         super(props);
+
+        const { message } = props;
+
+        /** Initial state. */
+        this.state = {
+            active: message ? true : false
+        };
 
         this.handleSnackbarClose = this.handleSnackbarClose.bind(this);
     }
@@ -80,7 +82,7 @@ class SnackBar extends Component {
         this.setState(
             { active: false },
             // Wait for close animation to finish
-            () => setTimeout(() => this.props.removeSnackbarMessage(id), 300)
+            () => setTimeout(() => this.props.removeSnackbarMessage(id), 600)
         );
     }
 
