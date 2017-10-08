@@ -12,7 +12,7 @@ import TCard from 'react-toolbox/lib/card/Card';
 import TCardTitle from 'react-toolbox/lib/card/CardTitle';
 import TCardText from 'react-toolbox/lib/card/CardText';
 // Styles
-import './styles/todo-list.css';
+import './styles/todo-list.scss';
 // Misc
 import { getVisibleTodos } from './utils';
 

@@ -1,6 +1,6 @@
 // Libs
 import React from 'react';
-import './styles/app.css';
+import './styles/app.scss';
 // Components
 import AppBar from './app-bar';
 import TodoListCollection from './todo-list-collection';

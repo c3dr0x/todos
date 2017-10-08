@@ -16,7 +16,6 @@ import App from './components/app';
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
 // Misc
-import registerServiceWorker from './registerServiceWorker';
 import { loadState, saveState } from './utils/local-storage';
 
 const VERSION = '0.1.0';
@@ -51,7 +50,5 @@ ReactDOM.render(
             <App />
         </ThemeProvider>
     </Provider>
-    , document.getElementById('root')
+    , document.getElementsByClassName('root')[0]
 );
-
-registerServiceWorker();

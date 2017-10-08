@@ -6,7 +6,7 @@ import { todoListCollection } from '../../definitions';
 // Components
 import TodoList from '../todo-list';
 // Style
-import './styles/todo-list-collection.css';
+import './styles/todo-list-collection.scss';
 
 /**
  * mapStateToProps.

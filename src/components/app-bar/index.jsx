@@ -5,7 +5,7 @@ import TAppBar from 'react-toolbox/lib/app_bar/AppBar';
 import TButton from 'react-toolbox/lib/button/Button';
 import AddTodoList from '../todo-list-collection/add';
 // Styles
-import './styles/app_bar.css';
+import './styles/app_bar.scss';
 
 /**
  * AppBar component.
