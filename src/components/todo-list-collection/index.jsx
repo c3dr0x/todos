@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // Definitions
-import { todoListCollection } from '../../definitions';
+import { todoListCollection } from '../../definitions/todos';
 // Components
 import TodoList from '../todo-list';
 // Style

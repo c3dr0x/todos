@@ -1,9 +1,8 @@
 // Libs
 import React from 'react';
 // Definitions
-import { todoList } from '../../definitions';
-// Actions
-import { VisibilityFilters } from '../../actions/filter'
+import { todoList } from '../../definitions/todos';
+import { visibilityFilters } from '../../definitions/filter';
 // Components
 import List from './list';
 import Add from './add';
@@ -28,8 +27,8 @@ const defaultProps = {
  * @returns {JSXElement} component.
  */
 const TodoList = ({ id, name, todos, visibilityFilter }) => {
-    const completedTodos = getVisibleTodos(todos, VisibilityFilters.SHOW_COMPLETED).length;
-    const allTodos = getVisibleTodos(todos, VisibilityFilters.SHOW_ALL).length;
+    const completedTodos = getVisibleTodos(todos, visibilityFilters.SHOW_COMPLETED).length;
+    const allTodos = getVisibleTodos(todos, visibilityFilters.SHOW_ALL).length;
 
     return (
         <div className='todo-list' >

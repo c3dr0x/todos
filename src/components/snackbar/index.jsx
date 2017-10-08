@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // Actions
 import { removeSnackbarMessage } from '../../actions/snackbar';
 // Definition
-import { message } from '../../definitions';
+import { message } from '../../definitions/snackbar';
 // Components
 import TSnackbar from 'react-toolbox/lib/snackbar/Snackbar';
 

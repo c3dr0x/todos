@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // Definitions
-import { todo } from '../../definitions';
+import { todo } from '../../definitions/todos';
 // Components
 import TListCheckbox from 'react-toolbox/lib/list/ListCheckbox';
 

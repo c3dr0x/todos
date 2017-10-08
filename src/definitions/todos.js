@@ -1,5 +1,7 @@
 // Libs
 import PropTypes from 'prop-types';
+// Definitions
+import { visibilityFilters } from './filter';
 
 export const todo = {
     id: PropTypes.string.isRequired,
@@ -10,7 +12,7 @@ export const todo = {
 export const todoList = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    visibilityFilter: PropTypes.string.isRequired,
+    visibilityFilter: PropTypes.oneOf(Object.values(visibilityFilters)).isRequired,
     todos: PropTypes.arrayOf(
         PropTypes.shape(
             todo
@@ -23,9 +25,3 @@ export const todoListCollection = PropTypes.arrayOf(
         todoList
     )
 );
-
-export const message = PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired
-});

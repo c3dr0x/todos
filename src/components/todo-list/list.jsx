@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // Actions
 import { toggleTodo } from '../../actions/todo-list.js';
 // Definitions
-import { todo } from '../../definitions';
+import { todo } from '../../definitions/todos';
 // Components
 import TList from 'react-toolbox/lib/list/List';
 import Line from './line';

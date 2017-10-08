@@ -3,7 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // Actions
-import { setVisibilityFilter, VisibilityFilters } from '../../actions/filter';
+import { setVisibilityFilter } from '../../actions/filter';
+// Definition
+import { visibilityFilters } from '../../definitions/filter';
 // Components
 import TCardActions from 'react-toolbox/lib/card/CardActions';
 import TButton from 'react-toolbox/lib/button/Button';
@@ -26,9 +28,9 @@ const propTypes = {
 };
 
 const filters = [
-    { label: 'All', filter: VisibilityFilters.SHOW_ALL },
-    { label: 'Active', filter: VisibilityFilters.SHOW_ACTIVE },
-    { label: 'Completed', filter: VisibilityFilters.SHOW_COMPLETED }
+    { label: 'All', filter: visibilityFilters.SHOW_ALL },
+    { label: 'Active', filter: visibilityFilters.SHOW_ACTIVE },
+    { label: 'Completed', filter: visibilityFilters.SHOW_COMPLETED }
 ];
 
 /**

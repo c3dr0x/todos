@@ -1,13 +1,10 @@
+// Libs
 import uuid from 'uuid/v4';
+// Definitions
+import { snackbarMessageType } from '../definitions/snackbar';
 
 export const ADD_SNACKBAR_MESSAGE = 'ADD_SNACKBAR_MESSAGE';
 export const REMOVE_SNACKBAR_MESSAGE = 'REMOVE_SNACKBAR_MESSAGE';
-
-export const snackbarMessageType = {
-    ACCEPT: 'accept',
-    WARNING: 'warning',
-    CANCEL: 'cancel'
-};
 
 /**
  * Add a snackbar message.

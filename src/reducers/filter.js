@@ -1,5 +1,7 @@
 // Actions
-import { SET_VISIBILITY_FILTER, VisibilityFilters } from '../actions/filter';
+import { SET_VISIBILITY_FILTER } from '../actions/filter';
+// Definitions
+import { visibilityFilters } from '../definitions/filter';
 
 /**
  * Visibility filter reducer.
@@ -7,7 +9,7 @@ import { SET_VISIBILITY_FILTER, VisibilityFilters } from '../actions/filter';
  * @param {object} action action.
  * @returns {string} state.
  */
-function visibilityFilter(state = VisibilityFilters.SHOW_ALL, action) {
+function visibilityFilter(state = visibilityFilters.SHOW_ALL, action) {
     switch (action.type) {
         case SET_VISIBILITY_FILTER:
             return action.filter;
